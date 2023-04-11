@@ -1,0 +1,80 @@
+/* Write your CSS Here. */
+body {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  justify-content: center;
+}
+header {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 5px;
+}
+h1 {
+  font-size: 80px;
+  color: #2C3E50;
+}
+h2 {
+  margin-top: 0;
+  margin-bottom: 100px;
+  font-size: 35px;
+  font-style: italic;
+}
+.gameBoard {
+  margin-right: 250px;
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  width: 100px;
+  height: 500px;
+  border: 8px double #007FFF;
+  background-color: #AED6F1;
+}
+.playerBoard {
+  width: 400px;
+  height: 500px;
+  border: 8px double #007FFF;
+  font-family: 'Roboto', sans-serif;
+  background-color: #AED6F1;
+  text-align: center;
+}
+.instructions {
+  height: 250px;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.instructions h3{
+  border-bottom: 1px solid;
+}
+.turnTracker {
+  padding: 10px;
+  height: 150px;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 5px;
+  color: #FF3E4D
+}
+.playerRed {
+  color: #FF3E4D
+}
+.playerBlack {
+  color: #333333
+}
+.red {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+
+
