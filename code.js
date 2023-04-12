@@ -59,3 +59,21 @@ startButton.addEventListener("click", () => {
     startScreen.classList.add("hide");
     startGame();  
 });
+
+
+let gameBoard = document.querySelector(".gameBoard")
+let columns = gameBoard.querySelectorAll(".column")
+function createGameBoard (){
+    for (let i = 0; i < columns.length; i++) {
+        let column = columns[i];
+        for (let j = 0; j < 6; j++) {
+          let cell = document.createElement("div");
+          cell.classList.add("discSpot");
+          cell.setAttribute("row", j);
+          cell.setAttribute("col", i);
+          column.appendChild(cell);
+        }
+      }
+    }
+
+createGameBoard();
