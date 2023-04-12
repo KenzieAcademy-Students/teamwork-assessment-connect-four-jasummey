@@ -17,6 +17,20 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0]
 ];
+//adds the players token to the page
+function discToken(){
+    board[i][j] = currPlayer
+    let disc = this;
+    if(currPlayer === player1){
+        disc.classList.add("playerRed");
+        currPlayer === player2
+    } else {
+        disc.classList.add("playerBlack")
+        currPlayer === player1
+    }
+}
+playerTurn.innerHTML = currPlayer
+
 //Function to check to see if there is four in a row
 let checkArray = function (array) {
     let result = false;
