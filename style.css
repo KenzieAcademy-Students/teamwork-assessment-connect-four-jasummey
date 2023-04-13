@@ -99,11 +99,11 @@ button {
 }
 
 .discSpot {
-  height: 50px;
-  width: 50px;
+  height: 47px;
+  width: 46px;
   border-radius: 50%;
-  background-color:#f6ec8e;
-  border: 1px dashed #FF3E4D;
+  background-color: white;
+  border: 1px dashed #007FFF;
   margin: 1px;
 }
 
