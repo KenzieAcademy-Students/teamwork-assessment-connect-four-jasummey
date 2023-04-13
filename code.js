@@ -37,7 +37,7 @@
                [0, 0, 0, 0, 0, 0, 0]];
 
 //adds the players token to the page
-  function discToken()
+/*  function discToken()
   {
       board[i][j] = currPlayer
       let disc = this;
@@ -54,7 +54,7 @@
   }
 
   playerTurn.innerHTML = currPlayer
-
+*/
 //Other option to add game disc
 //for(let i = 0; i < board.length; i = i +1){
     // board[i].onclick = () => {
