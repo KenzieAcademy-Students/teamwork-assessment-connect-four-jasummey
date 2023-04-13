@@ -106,3 +106,7 @@ button {
   border: 1px dashed #FF3E4D;
   margin: 1px;
 }
+
+.hide {
+  display: none;
+}
