@@ -84,16 +84,16 @@ let gameOver = function(){
 };
 
 function startGame() {
+    // start game 
+//used arrow function because using a regular function was throwing an error on the term "add"
+    startButton.addEventListener("click", () => {
+        startScreen.classList.add("hide");  
     startScreen.destroy();
     startButton.destroy();
+})
 }
 
-// start game 
-//used arrow function because using a regular function was throwing an error on the term "add"
-startButton.addEventListener("click", () => {
-    startScreen.classList.add("hide");
-    startGame();  
-});
+startGame ()
 
 
 function createGameBoard (){
