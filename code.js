@@ -4,10 +4,10 @@
 let player1 = "R";
 let player2 = "B";
 let currPlayer = player1;
-let playerTurn = document.getElementsByClassName("turnTracker");
+let playerTurn = document.querySelector(".turnTracker");
 let startButton = document.getElementById("startGame")
-let message = document.getElementsByClassName("message")
-let startScreen = document.getElementsByClassName("startScreen")
+let message = document.querySelector(".message")
+let startScreen = document.querySelector(".startScreen")
 let gameBoard = document.querySelector(".gameBoard")
 let columns = gameBoard.querySelectorAll(".column")
 
