@@ -88,8 +88,6 @@ function startGame() {
 //used arrow function because using a regular function was throwing an error on the term "add"
     startButton.addEventListener("click", () => {
         startScreen.classList.add("hide");  
-    startScreen.destroy();
-    startButton.destroy();
 })
 }
 
