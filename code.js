@@ -8,6 +8,8 @@ let playerTurn = document.getElementsByClassName("turnTracker");
 let startButton = document.getElementById("startGame")
 let message = document.getElementsByClassName("message")
 let startScreen = document.getElementsByClassName("startScreen")
+let gameBoard = document.querySelector(".gameBoard")
+let columns = gameBoard.querySelectorAll(".column")
 
 let board = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -90,8 +92,6 @@ startButton.addEventListener("click", () => {
 });
 
 
-let gameBoard = document.querySelector(".gameBoard")
-let columns = gameBoard.querySelectorAll(".column")
 function createGameBoard (){
     for (let i = 0; i < columns.length; i++) {
         let column = columns[i];
@@ -106,3 +106,48 @@ function createGameBoard (){
     }
 
 createGameBoard();
+
+function playGame () {
+    function placeDisc(column) {
+      for (let row = board.length - 1; row >= 0; row--) {
+        if (board[row][column] === 0) {
+          board[row][column] = currPlayer;
+          let cell = document.querySelector(`[row="${row}"][col="${column}"]`);
+          cell.style.backgroundColor = currPlayer === "R" ? "red" : "black";
+          playerTurn.innerHTML = currPlayer === "R"? "Player Black's turn" : "Player Red's Turn";
+          playerTurn.style.color = currPlayer === "R"? "black" : "red";
+          //insertcheckForWins here
+          checkForWins();
+          return true;
+        }
+      }
+      return false;
+    }
+    for (let i = 0; i < columns.length; i++) {
+      columns[i].addEventListener("click", function() {
+        if (placeDisc(i)) {
+          currPlayer = currPlayer === "R" ? "B" : "R";
+        } else {
+          playerTurn.innerHTML="This column is full - try another!";
+        }
+      });
+    }
+  }
+  playGame();
+  
+  function checkForWins () {
+  const edgeX = board[0].length - 3;
+  const edgeY = board.length - 3;
+  for(let y = 0; y < board.length; y++){
+    for(let x = 0; x < edgeX; x++) {
+      let cell = board[y][x];
+      if(cell !== 0) {
+        if(cell === board[y][x+1] && cell === board[y][x+2] && cell === board[y][x+3]) {
+          playerTurn.innerHTML = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!"
+          playerTurn.style.color = currPlayer === "R"? "red" : "black";
+          gameOver();
+        }
+      }
+    }
+  }
+  }
