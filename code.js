@@ -83,6 +83,10 @@ let gameOver = function(){
     }
 };
 
+function startGame() {
+    startScreen.destroy();
+    startButton.destroy();
+}
 
 // start game 
 //used arrow function because using a regular function was throwing an error on the term "add"
