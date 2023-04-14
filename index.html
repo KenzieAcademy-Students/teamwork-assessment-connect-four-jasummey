@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <meta name="description" content="Kenzie" />
-    <meta name="author" content="Kenzie" />
-    <meta name="keywords" content="Kenzie" />
-
-    <!-- Title Page-->
-    <title>Kenzie Group Project</title>
-
-    <!-- CSS-->
-    <link href="style.css" rel="stylesheet" media="all" />
-  </head>
-
-  <body>
-    Your HTML Here
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap" rel="stylesheet">
+    <title>Connect 4</title>
+</head>
+<body>
+    <header>
+        <h1>Connect 4</h1>
+        <h2>Own the Grid!</h2>
+    </header>
+    <main>
+        <section class="gameBoard">
+            <div class="column 0"></div>
+            <div class="column 1"></div>
+            <div class="column 2"></div>
+            <div class="column 3"></div>
+            <div class="column 4"></div>
+            <div class="column 5"></div>
+            <div class="column 6"></div>
+        </section>
+        <section class="playerBoard">
+            <div class="instructions">
+                <p>Take turns dropping your discs into any column on the game board.<br>
+                    The first player to connect four of their colored discs wins the game.</p>
+            </div>
+            <div class="turnTracker">
+                <p>Player Red's turn</p>
+            </div>
+        </section>
+        <section class="startScreen">
+            <div class="message"></div>
+            <button id="startGame">Start Game</button>            
+        </section>
+        <section class="refreshScreen">
+            <button id="refreshGame" hidden>Restart Game</button>            
+        </section>
+    </main>
     <script src="code.js"></script>
-  </body>
+</body>
 </html>
