@@ -36,38 +36,7 @@
                [0, 0, 0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 0, 0]];
 
-//adds the players token to the page
-/*  function discToken()
-  {
-      board[i][j] = currPlayer
-      let disc = this;
-      if (currPlayer === player1)
-      {
-          disc.classList.add("playerRed");
-          currPlayer === player2
-      }
-      else
-      {
-        disc.classList.add("playerBlack")
-        currPlayer === player1
-      }
-  }
 
-  playerTurn.innerHTML = currPlayer
-*/
-//Other option to add game disc
-//for(let i = 0; i < board.length; i = i +1){
-    // board[i].onclick = () => {
-    //     if(currPlayer === player1) {
-    //         board[i].classList.add("playerRed")
-    //         currPlayer = player2
-    //         playerTurn.innerHTML = currPlayer
-    //     } else if (currPlayer === player2){
-    //         board[i].classList.add("playerBlack")
-    //     currPlayer = player1    
-    //     playerTurn.innerHTML = currPlayer
-    // }
-    // }
 
 
 //Function to check to see if there is four in a row
