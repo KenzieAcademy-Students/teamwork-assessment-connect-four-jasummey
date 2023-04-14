@@ -73,30 +73,6 @@
     // }
 
 
-//Function to check to see if there is four in a row
-  let checkArray = function (array)
-  {
-      let result = false;
-      let discCount = 0;
-
-      array.forEach((element, index) =>
-      {
-          if (element === currPlayer)
-          {
-              discCount += 1;
-              if (discCount === 4)
-              {
-                  result = true;
-              }
-          }
-          else
-          {
-              discCount = 0;
-          }
-      });
-
-      return result
-  }
 
 //Check for game over
   let gameOver = function ()
