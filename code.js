@@ -18,16 +18,19 @@
  ******                    First player to get a straight of four either vertically, horizontally, or diagonally wins.         *****
  ******                                                                                                                        *****
  ***********************************************************************************************************************************/
-  let player1     = "R"                                       ;
-  let player2     = "B"                                       ;
-  let currPlayer  = player1                                   ;
-  let playerTurn  = document .querySelector   (".turnTracker");
-  let startButton = document .getElementById  ("startGame"   );
-  let message     = document .querySelector   (".message"    );
-  let startScreen = document .querySelector   (".startScreen");
-  let gameBoard   = document .querySelector   (".gameBoard"  );
-  let columns     = gameBoard.querySelectorAll(".column"     );
-  let isGameOver  = false                                     ;
+  let player1        = "R"                                        ;
+  let player2        = "B"                                        ;
+  let currPlayer     = player1                                    ;
+  let playerTurn     = document .querySelector   (".turnTracker"  );
+  let startButton    = document .getElementById  ("startGame"     );
+  let message        = document .querySelector   (".message"      );
+  let startScreen    = document .querySelector   (".startScreen"  );
+  let gameBoard      = document .querySelector   (".gameBoard"    );
+  let playerBoard    = document .querySelector   (".playerBoard"  );
+  let instructions   = document .querySelector   (".instructions" );
+  let columns        = gameBoard.querySelectorAll(".column"       );
+  let main           = document .querySelector   ("main"          );
+  let isGameOver     = false                                       ;
   
   let board = [[0, 0, 0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 0, 0],
@@ -36,14 +39,55 @@
                [0, 0, 0, 0, 0, 0, 0],
                [0, 0, 0, 0, 0, 0, 0]];
 
+//adds the players token to the page
+  function discToken()
+  {
+      board[i][j] = currPlayer
+      let disc = this;
+      if (currPlayer === player1)
+      {
+          disc.classList.add("playerRed");
+          currPlayer === player2
+      }
+      else
+      {
+        disc.classList.add("playerBlack")
+        currPlayer === player1
+      }
+  }
 
+  playerTurn.innerHTML = currPlayer
+
+//Other option to add game disc
+//for(let i = 0; i < board.length; i = i +1){
+    // board[i].onclick = () => {
+    //     if(currPlayer === player1) {
+    //         board[i].classList.add("playerRed")
+    //         currPlayer = player2
+    //         playerTurn.innerHTML = currPlayer
+    //     } else if (currPlayer === player2){
+    //         board[i].classList.add("playerBlack")
+    //     currPlayer = player1    
+    //     playerTurn.innerHTML = currPlayer
+    // }
+    // }
 
 
 
 //Check for game over
   let gameOver = function ()
   {
-      isGameOver = true;
+        playerBoard.style.visibility = 'hidden'                    
+        imgSection = document.createElement("section")
+        imgSection.innerHTML = currPlayer === "R" ? '<br><br><br><br><br><br><p><img src="/images/RedWon.png"</img>' : '<br><br><br><br><br><br><p><img src="/images/BlackWon.png"</img>'
+        imgSection.classList.add("shake1")
+        toggleShake(imgSection)
+        //main.remove(imgSection)
+        main.append(imgSection)
+        //playerTurn.innerHTML   = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!";
+        //playerTurn.style.color = currPlayer === "R"? "red"                        : "black";
+    
+       isGameOver = true;
 
       let finalCount = 0;
 
@@ -114,7 +158,7 @@
                   if (!isGameOver)
                   {
                       checkForWins();
-                  }
+                  }                  
 
                   return true;
               }
@@ -161,9 +205,6 @@
                   &&  board[y + 1][x + 1] === board[y + 2][x + 2] 
                   &&  board[y + 2][x + 2] === board[y + 3][x + 3])
                   {
-                      playerTurn.innerHTML   = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!";
-                      playerTurn.style.color = currPlayer === "R"? "red"                        : "black";
-                      
                       gameOver();
                   }
               }
@@ -185,9 +226,6 @@
                   &&  board[y - 1][x + 1] === board[y - 2][x + 2]
                   &&  board[y - 2][x + 2] === board[y - 3][x + 3])
                   {
-                      playerTurn.innerHTML   = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!";
-                      playerTurn.style.color = currPlayer === "R"? "red"                        : "black";
-                      
                       gameOver();
                   }
               }
@@ -209,9 +247,6 @@
                   &&  board[y + 1][x] === board[y + 2][x]
                   &&  board[y + 2][x] === board[y + 3][x])
                   {
-                      playerTurn.innerHTML   = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!";
-                      playerTurn.style.color = currPlayer === "R"? "red"                        : "black";
-
                       gameOver();
                   }
               }
@@ -239,9 +274,6 @@
                   && cell === board[y][x+2] 
                   && cell === board[y][x+3]) 
                   {
-                      playerTurn.innerHTML   = currPlayer === "R"? "Player Red got 4 in a row!" : "Player Black got 4 in a row!";
-                      playerTurn.style.color = currPlayer === "R"? "red"                        : "black";
-
                       gameOver();
                   }
               }
@@ -270,4 +302,19 @@
     {
       checkFor4DiagLowerLeftToUpperRight();
     }
+}
+
+// This function is provided to shake an image.  Use it every time the user clicks on a pokemon.
+// Feel free to delete this function and include it as a method within your classes...
+const toggleShake = function(element) {
+    // Animations only occur when a new class is added to the element.
+    // Since we want this to happen every time, we can switch between two different animations
+    if (element.classList.contains("shake1")) {
+      element.classList.remove("shake1");
+      element.classList.add("shake2")
+    } else {
+      element.classList.remove("shake2");
+      element.classList.add("shake1")
+    }
   }
+  
